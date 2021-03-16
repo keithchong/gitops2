@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/name: app-taxi
+  name: a-long-environment-name-app-taxi
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: a-long-environment-name
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: environments/a-long-environment-name/apps/app-taxi/overlays
+    repoURL: https://github.com/keithchong/gitops2.git
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  health: {}
+  summary: {}
+  sync:
+    comparedTo:
+      destination: {}
+      source:
+        repoURL: ""
+    status: ""

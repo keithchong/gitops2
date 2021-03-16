@@ -12,6 +12,7 @@ resources:
 - 03-secrets/git-host-access-token.yaml
 - 03-secrets/git-host-basic-auth-token.yaml
 - 03-secrets/gitops-webhook-secret.yaml
+- 03-secrets/webhook-secret-a-long-environment-name-taxi.yaml
 - 03-secrets/webhook-secret-dev-taxi.yaml
 - 04-tasks/deploy-from-source-task.yaml
 - 05-pipelines/app-ci-pipeline.yaml

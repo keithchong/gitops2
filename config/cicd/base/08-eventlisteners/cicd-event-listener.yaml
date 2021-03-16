@@ -26,6 +26,21 @@ spec:
     template:
       name: ci-dryrun-from-push-template
   - bindings:
+    - ref: github-push-binding
+    interceptors:
+    - github:
+        secretRef:
+          secretKey: webhook-secret-key
+          secretName: webhook-secret-a-long-environment-name-taxi
+    - cel:
+        filter: (header.match('X-GitHub-Event', 'push') && body.repository.full_name == 'keithchong/taxi')
+        overlays:
+        - expression: body.ref.split('/')[2]
+          key: ref
+    name: app-ci-build-from-push-taxi
+    template:
+      name: app-ci-template
+  - bindings:
     - ref: dev-app-taxi-taxi-binding
     - ref: github-push-binding
     interceptors:

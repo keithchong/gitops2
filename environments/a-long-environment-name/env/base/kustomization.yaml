@@ -1,0 +1,4 @@
+resources:
+- a-long-environment-name-environment.yaml
+- a-long-environment-name-rolebinding.yaml
+- argocd-admin.yaml
