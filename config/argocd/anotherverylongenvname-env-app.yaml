@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: null
+  name: anotherverylongenvname-env
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: anotherverylongenvname
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: environments/anotherverylongenvname/env/overlays
+    repoURL: https://github.com/keithchong/gitops2.git
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  health: {}
+  summary: {}
+  sync:
+    comparedTo:
+      destination: {}
+      source:
+        repoURL: ""
+    status: ""

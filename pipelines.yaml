@@ -20,6 +20,21 @@ environments:
       - github-push-binding
       template: app-ci-template
 - apps:
+  - name: app-taxi2
+    services:
+    - name: taxi2
+      source_url: http://github.com/keithchong/taxi2.git
+      webhook:
+        secret:
+          name: webhook-secret-anotherverylongenvname-taxi2
+          namespace: cicd
+  name: anotherverylongenvname
+  pipelines:
+    integration:
+      bindings:
+      - github-push-binding
+      template: app-ci-template
+- apps:
   - name: app-taxi
     services:
     - name: taxi

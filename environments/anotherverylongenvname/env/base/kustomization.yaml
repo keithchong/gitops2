@@ -1,0 +1,4 @@
+resources:
+- anotherverylongenvname-environment.yaml
+- anotherverylongenvname-rolebinding.yaml
+- argocd-admin.yaml
